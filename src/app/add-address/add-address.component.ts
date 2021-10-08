@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserinfoService } from '../service/userinfo.service';
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-address',
@@ -12,7 +13,9 @@ export class AddAddressComponent implements OnInit {
   addAddress: FormGroup;
   userId: any;
   sameAsTemp: boolean = false 
-  constructor(private fb: FormBuilder, private userinfoService: UserinfoService,	private activatedRoute: ActivatedRoute,private Router:Router) {
+  horizontalPosition: MatSnackBarHorizontalPosition = "right";
+  verticalPosition: MatSnackBarVerticalPosition = "top";
+  constructor(private _snackBar: MatSnackBar ,private fb: FormBuilder, private userinfoService: UserinfoService,	private activatedRoute: ActivatedRoute,private Router:Router) {
     this.addAddress = fb.group({
       'address' : [null, Validators.required],
       'state':[null, Validators.required],
@@ -71,7 +74,22 @@ const data = {
 }
 this.userinfoService.addAddress(data).subscribe(result =>{
   this.Router.navigate(["/document", this.userId])
-})
-this.addAddress.reset()
-  }
+  this._snackBar.open('Add user address successful',"dismiss", {
+    duration: 1000,
+    horizontalPosition: this.horizontalPosition,
+    verticalPosition: this.verticalPosition,
+  });
+  this.addAddress.reset()
+}
+,(err)=>{
+  this._snackBar.open('Something wrong',"dismiss", {
+    duration: 1000,
+    horizontalPosition: this.horizontalPosition,
+    verticalPosition: this.verticalPosition,
+  });
+  
+}
+)
+}
+
 }

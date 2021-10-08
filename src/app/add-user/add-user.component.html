@@ -1,45 +1,63 @@
 
-<div class=" container border m-5">
+<div class=" container border border-primary  m-5" style="border-radius: 5px">
    <div class=" m-3">
       <div class="row">
          <div class="col-md-12 text-center">
-            <h4>Add User Information</h4>
+            <h3>Add User Information</h3>
          </div>
       </div>
        <form [formGroup]="addUser" (ngSubmit)="onNext()">
        <div class="row mt-4">
         <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
-           <label for="firstName" class="form-label">First Name</label>
-           <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="First Name">
+           <mat-form-field  class="example-full-width" appearance="outline">
+            <mat-label>First Name</mat-label>
+          <input matInput  formControlName="firstName" placeholder="First Name"   class="capitalize">
+          </mat-form-field>
         </div>
         <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
-           <label for="middleName" class="form-label">Middle Name</label>
-           <input type="text" class="form-control" id="middleName"  formControlName="middleName" placeholder="Middle Name">
-        </div>
-        <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
-           <label for="lastName" class="form-label">Last Name</label>
-           <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Last Name">
-        </div>
-        <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
-           <label for="email" class="form-label">Email</label>
-           <input type="email" class="form-control" id="email" formControlName="email" placeholder="email">
-        </div>
-        <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
-           <label for="mobile" class="form-label">Mobile No.</label>
-           <input type="text" class="form-control" id="mobile" formControlName="mobile" placeholder="Mobile No.">
-        </div>
-        <div class="form-group col-md-3 col-sm-3 col-lg-3 ">
-           <label for="mobile" class="form-label">Gender</label>
-           <select class="form-select" aria-label="Default select example" formControlName="age">
-               <option selected value="Male">Male</option>
-               <option value="Female">Female</option>
-               <option value="Others">Others</option>
-             </select>
-        </div>
+         <mat-form-field  class="example-full-width" appearance="outline">
+            <mat-label>Middle Name</mat-label>
+          <input matInput  formControlName="middleName" placeholder="Middle Name" class="capitalize">
+          </mat-form-field>
        
+        </div>
+        <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+         <mat-form-field  class="example-full-width" appearance="outline">
+            <mat-label>Middle Name</mat-label>
+          <input matInput  formControlName="lastName" placeholder="Last Name" class="capitalize">
+          </mat-form-field>
+           
+        </div>
+        <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+         <mat-form-field  class="example-full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+          <input matInput  formControlName="email" placeholder="email" >
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+         <mat-form-field  class="example-full-width" appearance="outline">
+            <mat-label>Mobile</mat-label>
+          <input matInput  formControlName="mobile" placeholder="Mobile No." class="capitalize">
+          </mat-form-field>
+           
+        </div>
         <div class="form-group col-md-3 col-sm-3 col-lg-3 ">
-           <label for="dob" class="form-label">dob</label>
-           <input type="date" class="form-control" id="mobile" formControlName="dob" placeholder="dob">
+         <mat-form-field appearance="outline">
+            <mat-label>Select Gender</mat-label>
+            <mat-select  formControlName="age">
+              <mat-option value="Male">Male</mat-option>
+              <mat-option value="Female">Female</mat-option>
+              <mat-option value="Others">Others</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-3 col-sm-3 col-lg-3 ">
+         <mat-form-field appearance="outline">
+            <mat-label>DOB</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dob">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
         </div>
         <div class="form-group col-md-12 mt-4 col-sm-12 ">
            <div class="row">

@@ -1,12 +1,12 @@
 
 
 
-<div class=" container border m-5">
+<div class=" container  border border-primary  m-5" style="border-radius: 5px">
     <div class=" m-3">
   <div class="row">
       <div class="col-md-6 col-lg-6 col-sm-6">
         <div class="row">
-            <div class="form-group col-md-8 ">
+            <div class="form-group col-md-8 offset-md-4 ">
                 <input
                 #fileInput
                 type="file"
@@ -14,13 +14,10 @@
                 (change)="handleChange($event.target.files)"
               />
               <button  mat-raised-button (click)="fileInput.click()">Upload Document</button>
-
-                   <!-- <label for="formFile" class="form-label">Upload Document</label>
-                   <input class="form-control" type="file" id="formFile" (change)="handleChange($event.target.files)"> -->
             </div>
            </div> 
            <div class="row mt-3">
-               <div class="form-group col-md-6">
+               <div class="form-group col-md-6 offset-md-2">
                    <img [src]="file" alt="" width="350px" height="300px">
                </div>
        
@@ -28,7 +25,7 @@
       </div>
       <div class="col-md-6 col-lg-6 col-sm-6">
         <div class="row">
-            <div class="form-group col-md-8 ">
+            <div class="form-group col-md-8 offset-md-4">
                 <input
                 #fileInput1
                 type="file"
@@ -36,12 +33,10 @@
                 (change)="handleChangeSign($event.target.files)"
               />
               <button  mat-raised-button (click)="fileInput1.click()">Upload Signature</button>
-                   <!-- <label for="formFile" class="form-label">Upload Signature </label>
-                   <input class="form-control" type="file" id="formFile" (change)="handleChangeSign($event.target.files)"> -->
             </div>
            </div> 
            <div class="row mt-3">
-               <div class="form-group col-md-6">
+               <div class="form-group col-md-6  offset-md-2">
                    <img [src]="sign" alt="" width="350px" height="300px">
                </div>
        

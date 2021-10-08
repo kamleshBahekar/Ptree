@@ -38,8 +38,16 @@ export class AddUserComponent implements OnInit {
 				horizontalPosition: this.horizontalPosition,
 				verticalPosition: this.verticalPosition,
 			});
-    })
-    this.addUser.reset()
+      this.addUser.reset()
+    },(err)=>{
+      this._snackBar.open('Something wrong',"dismiss", {
+				duration: 1000,
+				horizontalPosition: this.horizontalPosition,
+				verticalPosition: this.verticalPosition,
+			});
+      
+    }
+    )
   }
 
 }

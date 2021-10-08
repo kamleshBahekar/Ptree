@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { SheardModule } from '../../src/app/sheard/sheard.module'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddUserComponent } from './add-user/add-user.component';
@@ -31,7 +31,8 @@ import { MatButtonModule } from '@angular/material/button';
     NgxSpinnerModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
-    MatButtonModule
+    MatButtonModule,
+    SheardModule
   ],
   exports: [
     MatSnackBarModule,
