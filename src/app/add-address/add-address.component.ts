@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserinfoService } from '../service/userinfo.service';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-add-address',
@@ -15,7 +16,7 @@ export class AddAddressComponent implements OnInit {
   sameAsTemp: boolean = false 
   horizontalPosition: MatSnackBarHorizontalPosition = "right";
   verticalPosition: MatSnackBarVerticalPosition = "top";
-  constructor(private _snackBar: MatSnackBar ,private fb: FormBuilder, private userinfoService: UserinfoService,	private activatedRoute: ActivatedRoute,private Router:Router) {
+  constructor(private spinner: NgxSpinnerService, private _snackBar: MatSnackBar ,private fb: FormBuilder, private userinfoService: UserinfoService,	private activatedRoute: ActivatedRoute,private Router:Router) {
     this.addAddress = fb.group({
       'address' : [null, Validators.required],
       'state':[null, Validators.required],
@@ -53,6 +54,7 @@ get setControl(){
 
 
   onaddAddressNext(){
+    this.spinner.show();
 const data = {
   userId: this.userId,
   temporaryAddress :{
@@ -79,6 +81,7 @@ this.userinfoService.addAddress(data).subscribe(result =>{
     horizontalPosition: this.horizontalPosition,
     verticalPosition: this.verticalPosition,
   });
+  this.spinner.hide();
   this.addAddress.reset()
 }
 ,(err)=>{
@@ -87,7 +90,7 @@ this.userinfoService.addAddress(data).subscribe(result =>{
     horizontalPosition: this.horizontalPosition,
     verticalPosition: this.verticalPosition,
   });
-  
+  this.spinner.hide();
 }
 )
 }

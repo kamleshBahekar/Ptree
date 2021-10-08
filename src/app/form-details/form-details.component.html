@@ -1,6 +1,7 @@
 <div class="overflow-hidden">
   <div  class="text-center mt-4 "><h3>User Details</h3></div>
-  <div class="container border border-primary mt-5 mb-5" *ngFor="let item of details" style="border-radius: 5px">
+  <div class="m-5 border border-primary" *ngFor="let item of details" style="border-radius: 5px">
+    <div  class="text-center mt-4 "><h3></h3></div>
       <div class="row  mb-5 mt-5">
        <div class="col-md-6 col-lg-6 col-sm-6">
           <div class="row justify-content-center">
@@ -8,7 +9,7 @@
               <img [src]="item?.avatar" alt="" width="200px" height="200px">
              </div>
              <div class="col-md-12 text-center m-2">
-              <h5>Document</h5>
+              <h4>Document</h4>
             </div>
          </div>
        </div>
@@ -19,13 +20,13 @@
           <img [src]="item?.sign" alt="" width="200px" height="200px">
               </div>
               <div class="col-md-12 text-center m-2">
-                <h5>Signature</h5>
+                <h4>Signature</h4>
               </div>
           </div>
       </div>
       </div>
       <hr style="color: rgb(18, 18, 224);">
-      <div  class="text-center mt-4 mn-2"><h4>User Infomation</h4></div>
+      <div  class="text-center mt-4 mn-2"><h3>User Infomation</h3></div>
      
     <div class="row">
       <div class="col-md-6">
@@ -55,14 +56,14 @@
       </div>
     </div>
     <hr style="color: rgb(18, 18, 224);">
-       <div  class="text-center mt-4 mn-2"><h4>User Address</h4></div>
+       <div  class="text-center mt-4 mn-2"><h3>User Address</h3></div>
     <div class="row mb-2">
         <div class="col-md-6">   
           <div class="row justify-content-center">
             <div class="form-group col-md-5 col-md-offset-5 align-center ">
           <div class="row">
           <div class="col-md-12">
-              <h5>Permanent Address</h5>
+              <h4>Permanent Address</h4>
           </div>
           <div class="col-md-12">
             Address  :  {{item.permanentAddress?.address}}
