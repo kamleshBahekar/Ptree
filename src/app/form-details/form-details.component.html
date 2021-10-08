@@ -1,0 +1,119 @@
+<div class="overflow-hidden">
+  <div  class="text-center mt-4"><h4>User Details</h4></div>
+  <div class="container border mt-5 mb-5" *ngFor="let item of details">
+      <div class="row  mb-5 mt-5">
+       <div class="col-md-6 col-lg-6 col-sm-6">
+          <div class="row justify-content-center">
+              <div class="form-group col-md-4 col-md-offset-5 align-center ">
+              <img [src]="item?.avatar" alt="" width="200px" height="200px">
+             </div>
+             <div class="col-md-12 text-center m-2">
+              <h5>Document</h5>
+            </div>
+         </div>
+       </div>
+    
+       <div class="col-md-6 col-lg-6  col-sm-6">
+          <div class="row justify-content-center">
+              <div class="form-group col-md-4 col-md-offset-5 align-center ">
+          <img [src]="item?.sign" alt="" width="200px" height="200px">
+              </div>
+              <div class="col-md-12 text-center m-2">
+                <h5>Signature</h5>
+              </div>
+          </div>
+      </div>
+      </div>
+      <hr>
+      <div  class="text-center mt-4 mn-2"><h4>User Infomation</h4></div>
+     
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row justify-content-center">
+          <div class="form-group col-md-5 col-md-offset-5 align-center ">
+        <div class="row">
+             <div class="col-md-12">
+                First Name : {{item?.firstName}}
+             </div>
+             <div class="col-md-12">
+                Middle Name : {{item?.middleName}}
+             </div>
+             <div class="col-md-12">
+                Last Name : {{item?.lastName}}
+             </div>
+             <div class="col-md-12">
+                Mobile Name : {{item?.mobile}}
+             </div>
+             <div class="col-md-12">
+                Email Name : {{item?.email}}
+             </div>
+         </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+       <hr>
+       <div  class="text-center mt-4 mn-2"><h4>User Address</h4></div>
+    <div class="row mb-2">
+        <div class="col-md-6">   
+          <div class="row justify-content-center">
+            <div class="form-group col-md-5 col-md-offset-5 align-center ">
+          <div class="row">
+          <div class="col-md-12">
+              <h5>Permanent Address</h5>
+          </div>
+          <div class="col-md-12">
+            Address  :  {{item.permanentAddress?.address}}
+          </div>
+          <div class="col-md-12">
+              State  :  {{item.permanentAddress?.state}}
+            </div>
+            <div class="col-md-12">
+              City  :  {{item.permanentAddress?.city}}
+            </div>
+            <div class="col-md-12">
+              Area  :  {{item.permanentAddress?.area}}
+            </div>
+            <div class="col-md-12">
+              Pincode  :  {{item.permanentAddress?.pincode}}
+            </div>
+            </div>
+            </div>
+          </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row justify-content-center">
+          <div class="form-group col-md-5 col-md-offset-5 align-center ">
+          <div class="row">
+              <div class="col-md-12">
+                  <h5>Temporary Address</h5>
+              </div>
+              <div class="col-md-12">
+                Address  :  {{item.temporaryAddress?.address}}
+              </div>
+              <div class="col-md-12">
+                  State  :  {{item.temporaryAddress?.state}}
+                </div>
+                <div class="col-md-12">
+                  City  :  {{item.temporaryAddress?.city}}
+                </div>
+                <div class="col-md-12">
+                  Area  :  {{item.temporaryAddress?.area}}
+                </div>
+                <div class="col-md-12">
+                  Pincode  :  {{item.temporaryAddress?.pincode}}
+                </div>
+           </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  
+      </div> 
+      <div class="row mb-5">
+        <div class="col-md-2 offset-md-10"><button class="btn btn-primary">Print</button></div>
+      </div>
+</div>

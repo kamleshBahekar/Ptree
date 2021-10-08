@@ -3,15 +3,42 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { AddUserComponent } from './add-user/add-user.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AddAddressComponent } from './add-address/add-address.component';
+import { AddDocumentComponent } from './add-document/add-document.component';
+import { FormDetailsComponent } from './form-details/form-details.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddUserComponent,
+    AddAddressComponent,
+    AddDocumentComponent,
+    FormDetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule,
+    MatButtonModule
   ],
+  exports: [
+    MatSnackBarModule,
+    MatButtonModule
+
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })

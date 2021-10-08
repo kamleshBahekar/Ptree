@@ -1,0 +1,82 @@
+
+
+
+<div class=" container border m-5">
+   <div class=" m-3">
+      <div class=" text-center ">
+         <h4>Add User Address</h4>
+   </div>
+    <form [formGroup]="addAddress" (ngSubmit)="onaddAddressNext()">
+    <div class="row">
+        <div class="col-md-12">
+            <h5>Temporary Address</h5>
+        </div>
+     <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+        <label for="address" class="form-label">Address</label>
+        <input type="text" class="form-control" id="address" formControlName="address" placeholder="Address">
+     </div>
+     <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+        <label for="state" class="form-label">State</label>
+        <input type="text" class="form-control" id="state"  formControlName="state" placeholder="State">
+     </div>
+     <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+        <label for="city" class="form-label">City</label>
+        <input type="text" class="form-control" id="city" formControlName="city" placeholder="City">
+     </div>
+     <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+        <label for="area" class="form-label">Area</label>
+        <input type="text" class="form-control" id="area" formControlName="area" placeholder="Area">
+     </div>
+     <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+        <label for="street" class="form-label">Street</label>
+        <input type="text" class="form-control" id="street" formControlName="street" placeholder="Street">
+     </div>
+     <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+        <label for="pincode" class="form-label">Pincode</label>
+        <input type="text" class="form-control" id="pincode" formControlName="pincode" placeholder="Pincode">
+     </div>
+    </div> 
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <h5 style="float: left;">Permanent Address</h5>
+            <div style="float: right;" class="mb-3 form-check float-right">
+                <input [disabled]="sameAsTemp" type="checkbox" class="form-check-input" id="exampleCheck1" (click)="sameAs()">
+                <label class="form-check-label" for="exampleCheck1" > Same as temporary address</label>
+              </div>
+        </div>
+        <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+           <label for="address" class="form-label">Address</label>
+           <input type="text" class="form-control" id="address" formControlName="paddress" placeholder="Address">
+        </div>
+        <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+           <label for="state" class="form-label">State</label>
+           <input type="text" class="form-control" id="state"  formControlName="pstate" placeholder="State">
+        </div>
+        <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+           <label for="city" class="form-label">City</label>
+           <input type="text" class="form-control" id="city" formControlName="pcity" placeholder="City">
+        </div>
+        <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+           <label for="area" class="form-label">Area</label>
+           <input type="text" class="form-control" id="area" formControlName="parea" placeholder="Area">
+        </div>
+        <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+           <label for="street" class="form-label">Street</label>
+           <input type="text" class="form-control" id="street" formControlName="pstreet" placeholder="Street">
+        </div>
+        <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+           <label for="pincode" class="form-label">Pincode</label>
+           <input type="text" class="form-control" id="pincode" formControlName="ppincode" placeholder="Pincode">
+        </div>
+        <div class="form-group col-md-12 mt-4 col-sm-12 ">
+           <div class="row">
+               <div class="col-md-1 offset-md-11 col-sm-1 offset-sm-11">
+                   <button type="submit" [disabled]="!addAddress.valid" class="btn btn-primary">Next</button>
+               </div>
+           </div>
+        </div>
+   
+       </div> 
+    </form>
+   </div>
+</div>
