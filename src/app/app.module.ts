@@ -15,13 +15,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { NgxPrintModule } from 'ngx-print';
+import { UserListComponent } from './user-list/user-list.component';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { StepperComponent } from './stepper/stepper.component';
+// MDB Angular Pro
+import { StepperModule, WavesModule } from 'ng-uikit-pro-standard'
+// MDB Angular Pro
 @NgModule({
   declarations: [
     AppComponent,
     AddUserComponent,
     AddAddressComponent,
     AddDocumentComponent,
-    FormDetailsComponent
+    FormDetailsComponent,
+    UserListComponent,
+    StepperComponent,
+
+   
+    
   ],
   imports: [
     BrowserModule,
@@ -34,15 +45,21 @@ import { NgxPrintModule } from 'ngx-print';
     MatSnackBarModule,
     MatButtonModule,
     SheardModule,
-    NgxPrintModule
+    NgxPrintModule,
+    StepperModule,
+    WavesModule
+  
   ],
   exports: [
     MatSnackBarModule,
-    MatButtonModule
+    MatButtonModule,
+    
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [{
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: {showError: true}
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,193 @@
 <div class="overflow-hidden">
-  <div  class="text-center mt-4 "><h3>User Details</h3></div>
-  <div class="m-5 border border-primary" id="print-section" *ngFor="let item of details" style="border-radius: 5px">
+  <div  class="text-center mt-3 ">
+    <h3>User Details</h3>
+    
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="col-md-3 offset-md-1">
+      <button class="btn btn-primary" [routerLink]="['']">User List</button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-2 offset-md-10">
+        <button class="btn btn-primary" printTitle="User Details"   printSectionId="print-section"  ngxPrint >Print</button>
+      </div>
+    </div>
+      </div>
+      <div class="row m-5 border border-primary" *ngFor="let item of details"  id="print-section" style="border-radius: 5px">
+        
+        <div class="col-md-12">
+   
+        <div  class="text-center mt-4 "><h3>Document and Signature</h3></div>
+        <div class="row mt-5">
+         <div class="col-md-6 col-lg-6 col-sm-6">
+            <div class="row justify-content-center">
+                <div class="form-group col-md-4 col-md-offset-5 align-center ">
+                <img [src]="item?.avatar" alt="" width="150px" height="150px">
+               </div>
+               <div class="col-md-12 text-center m-2">
+                <h4>Document</h4>
+              </div>
+           </div>
+         </div>
+      
+         <div class="col-md-6 col-lg-6  col-sm-6">
+            <div class="row justify-content-center">
+                <div class="form-group col-md-4 col-md-offset-5 align-center ">
+            <img [src]="item?.sign" alt="" width="150px" height="150px">
+                </div>
+                <div class="col-md-12 text-center m-2">
+                  <h4>Signature</h4>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div  class="text-center mt-4 mn-2"><h3>User Infomation</h3></div>
+        <form [formGroup]="addUser">
+          <div class="row m-4" >
+           <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+              <mat-form-field  class="example-full-width" appearance="outline">
+               <mat-label>First Name</mat-label>
+             <input matInput  formControlName="firstName" placeholder="First Name"   class="capitalize">
+             </mat-form-field>
+           </div>
+           <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+            <mat-form-field  class="example-full-width" appearance="outline">
+               <mat-label>Middle Name</mat-label>
+             <input matInput  formControlName="middleName" placeholder="Middle Name" class="capitalize">
+             </mat-form-field>
+          
+           </div>
+           <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+            <mat-form-field  class="example-full-width" appearance="outline">
+               <mat-label>Last Name</mat-label>
+             <input matInput  formControlName="lastName" placeholder="Last Name" class="capitalize">
+             </mat-form-field>
+              
+           </div>
+           <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+            <mat-form-field  class="example-full-width" appearance="outline">
+               <mat-label>Email</mat-label>
+             <input matInput  formControlName="email" placeholder="email" >
+             </mat-form-field>
+           </div>
+           <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+            <mat-form-field  class="example-full-width" appearance="outline">
+               <mat-label>Mobile</mat-label>
+             <input matInput  formControlName="mobile" placeholder="Mobile No." class="capitalize">
+             </mat-form-field>
+              
+           </div>
+           <div class="form-group col-md-3 col-sm-3 col-lg-3 ">
+            <mat-form-field class="example-full-width" appearance="outline">
+               <mat-label>Select Gender</mat-label>
+               <mat-select  formControlName="gender">
+                 <mat-option value="Male">Male</mat-option>
+                 <mat-option value="Female">Female</mat-option>
+                 <mat-option value="Others">Others</mat-option>
+               </mat-select>
+             </mat-form-field>
+           </div>
+           <div class="form-group col-md-3 col-sm-3 col-lg-3 ">
+            <mat-form-field class="example-full-width" appearance="outline">
+               <mat-label>DOB</mat-label>
+               <input matInput [matDatepicker]="picker" formControlName="dob">
+               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+               <mat-datepicker #picker></mat-datepicker>
+             </mat-form-field>
+           </div>
+          </div> 
+        </form> 
+        <form [formGroup]="addAddress">
+          <div class="row m-4">
+              <div class="col-md-12 text-center">
+                  <h3>Temporary Address</h3>
+              </div>
+           <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+            <mat-form-field  class="example-full-width" appearance="outline">
+               <mat-label>Address</mat-label>
+             <input matInput   formControlName="address" placeholder="Address"   class="capitalize">
+             </mat-form-field>
+           </div>
+           <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+            <mat-form-field  class="example-full-width" appearance="outline">
+               <mat-label>State</mat-label>
+             <input matInput    formControlName="state" placeholder="State"   class="capitalize">
+             </mat-form-field>
+           </div>
+           <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+            <mat-form-field  class="example-full-width" appearance="outline">
+               <mat-label>City</mat-label>
+             <input matInput     formControlName="city" placeholder="City"   class="capitalize">
+             </mat-form-field>
+           </div>
+           <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+            <mat-form-field  class="example-full-width" appearance="outline">
+               <mat-label>Area</mat-label>
+             <input matInput    formControlName="area" placeholder="Area"   class="capitalize">
+             </mat-form-field>
+           </div>
+           <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+            <mat-form-field  class="example-full-width" appearance="outline">
+               <mat-label>Street</mat-label>
+             <input matInput    formControlName="street" placeholder="Street"  class="capitalize">
+             </mat-form-field>
+           </div>
+           <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+            <mat-form-field  class="example-full-width" appearance="outline">
+               <mat-label>Pincode</mat-label>
+             <input matInput    formControlName="pincode" placeholder="Pincode"  class="capitalize">
+             </mat-form-field>
+           </div>
+          </div> 
+          <div class="row m-4">
+              <div class="col-md-12 text-center">
+                  <h3>Permanent Address</h3>
+              </div>
+              <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+               <mat-form-field  class="example-full-width" appearance="outline">
+                  <mat-label>Address</mat-label>
+                <input matInput    formControlName="paddress" placeholder="Address"  class="capitalize">
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+               <mat-form-field  class="example-full-width" appearance="outline">
+                  <mat-label>State</mat-label>
+                <input matInput   formControlName="pstate" placeholder="State"  class="capitalize">
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+               <mat-form-field  class="example-full-width" appearance="outline">
+                  <mat-label>City</mat-label>
+                <input matInput  formControlName="pcity" placeholder="City"  class="capitalize">
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+               <mat-form-field  class="example-full-width" appearance="outline">
+                  <mat-label>Area</mat-label>
+                <input matInput  formControlName="parea" placeholder="Area" class="capitalize">
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+               <mat-form-field  class="example-full-width" appearance="outline">
+                  <mat-label>Street</mat-label>
+                <input matInput  formControlName="pstreet" placeholder="Street" class="capitalize">
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
+               <mat-form-field  class="example-full-width" appearance="outline">
+                  <mat-label>Pincode</mat-label>
+                <input matInput  formControlName="ppincode" placeholder="Pincode" class="capitalize">
+                </mat-form-field>
+              </div>
+              
+             </div> 
+          </form>
+
+      </div>
+
+  <!-- <div class="m-5 border border-primary" id="print-section" *ngFor="let item of details" style="border-radius: 5px">
     <div  class="text-center mt-4 "><h3>Document and Signature</h3></div>
       <div class="row  mb-5 mt-5">
        <div class="col-md-6 col-lg-6 col-sm-6">
@@ -113,8 +300,7 @@
       
     </div>
   
-      </div> 
-      <div class="row mb-5">
-        <div class="col-md-2 offset-md-10"><button class="btn btn-primary" printTitle="User Details"   printSectionId="print-section"  ngxPrint >Print</button></div>
-      </div>
+      </div>  -->
+         
+    </div>
 </div>

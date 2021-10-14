@@ -1,0 +1,51 @@
+<div style="overflow:hidden!important;">
+    <section>
+        <div class="row">
+            <div class="col-md-12 text-center mt-5 ">
+                <h3>User Table</h3>
+            </div>
+        </div>
+    </section>
+    <section>
+       <div class="row">
+           <div class="col-md-2 offset-md-10">
+            <button class="btn btn-primary" [routerLink]="['stepper']">Add User</button>
+           </div>
+       </div>
+      </section>
+    <section>
+        <div class="row m-4 border border-primary" style="border-radius: 5px;"  >
+            <div class="col-sm-12">
+                <table mat-table [dataSource]="dataSource" >
+                    <ng-container *ngFor="let disCol of displayedColumns; let colIndex = index" matColumnDef="{{disCol}}">
+                        <mat-header-cell *matHeaderCellDef>{{disCol}}</mat-header-cell>
+                        <mat-cell *matCellDef="let element ; let i =index"> <div *ngIf= "disCol !='Sr.No' && disCol !='Action'">{{element[disCol]}}</div>
+
+                            <div *ngIf="disCol =='Sr.No'">
+                                {{ i+1 }}
+                            </div>
+
+                            <div *ngIf="disCol =='Action'">
+                                <span class="material-icons" (click)="onEdit(element.Action)">
+                                    create
+                                </span>
+                                <span class="material-icons" (click)="onDelete(element.Action)">
+                                    delete
+                                    </span>
+                            </div>
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                  </table>
+                  <mat-paginator (page)="onPage($event)"
+                  [pageSizeOptions]="[5, 10, 25, 100]"
+              ></mat-paginator>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+  

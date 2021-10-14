@@ -1,0 +1,19 @@
+<div class="row m-5">
+    <div class="col-md-12">
+        <mdb-stepper #stepper>
+            <mdb-step name="Step 1">
+            <app-add-user (nextClick)="stepper.next()"></app-add-user>
+            </mdb-step>
+            <mdb-step name="Step 2" >
+            <app-add-address (nextClick)="stepper.next()" (backClick)="stepper.previous()"></app-add-address>
+            </mdb-step>
+            
+            <mdb-step name="Step 3">
+             <app-add-document (backClick)="stepper.previous()"></app-add-document>
+              <div class="step-actions">
+                <button mdbBtn  size="sm" color="primary" (click)="onSubmit()">SUBMIT</button>
+              </div>
+            </mdb-step>
+          </mdb-stepper>
+    </div>
+</div>

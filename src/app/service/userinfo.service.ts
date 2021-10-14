@@ -22,11 +22,38 @@ uploadImage(file){
 }
 addDocument(data){
   return this.https.post(this.apiUrl + "document",data); 
-  
 }
 getDetail(id){
   return this.https.get(this.apiUrl + 'form/'+id); 
   
 }
+getList(page,limit){
+  return this.https.get(this.apiUrl + `user/list?page=${page}&limit=${limit}`); 
+  
+}
 
+
+getUse(id){
+  return this.https.get(this.apiUrl + 'user/'+id); 
+}
+deleteUser(id){
+  return this.https.delete(this.apiUrl + 'user/delete/'+id); 
+}
+updateUser(id,data){
+  return this.https.put(this.apiUrl + 'user/update/'+id,data); 
+}
+
+getAddress(id){
+  return this.https.get(this.apiUrl + 'address/'+id);  
+}
+
+updateAddress(id,data){
+  return this.https.put(this.apiUrl + 'address/update/'+id,data); 
+}
+getDocument(id){
+  return this.https.get(this.apiUrl + 'document/'+id);
+}
+  updateDocument(id,data){
+    return this.https.put(this.apiUrl + 'document/update/'+id,data)
+  }
 }
