@@ -61,8 +61,9 @@
         </div>
         <div class="form-group col-md-12 mt-4 col-sm-12 col-lg-12 ">
            <div class="row">
-               <div class="col-md-1 offset-md-11 col-sm-1 offset-sm-11">
-                   <button type="submit" [disabled]="!addUser.valid" class="btn btn-primary btn-md">Next</button>
+               <div class="col-md-12 col-sm-12">
+                <button type="button" style="float: left;"  [routerLink]="['']" class="btn btn-primary">Home</button>
+                   <button type="submit" style="float: right;" [disabled]="!addUser.valid" class="btn btn-primary btn-md">Next</button>
                </div>
            </div>
         </div>
