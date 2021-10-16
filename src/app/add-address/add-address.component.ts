@@ -44,8 +44,8 @@ export class AddAddressComponent implements OnInit {
     // sameAddress: this.sameAsTemp
      if(this.idUser){
       this.userinfoService.getAddress(this.idUser).subscribe((result:any)=>{
-        console.log("resultgggg",result)
-
+        console.log("resultgggg",result.data.sameAddress)
+        //this.sameAsTemp = result.data.sameAddress
         this.addAddress.patchValue({
            address:result.data.permanentAddress.address,
            state:result.data.permanentAddress.state,
