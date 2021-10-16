@@ -75,14 +75,26 @@ export class AddAddressComponent implements OnInit {
      }
   }
 
-  sameAs(){
-    this.sameAsTemp = true
-    this.setControl.paddress.setValue(this.setControl.address.value);
+  sameAs(e){
+    console.log("e",e.checked)
+    if(e.checked == true){
+  this.setControl.paddress.setValue(this.setControl.address.value);
     this.setControl.pstate.setValue(this.setControl.state.value);
     this.setControl.pcity.setValue(this.setControl.city.value);
     this.setControl.parea.setValue(this.setControl.area.value);
     this.setControl.pstreet.setValue(this.setControl.street.value);
     this.setControl.ppincode.setValue(this.setControl.pincode.value);  
+    }
+    if(e.checked == false){
+      this.setControl.paddress.setValue('');
+        this.setControl.pstate.setValue('');
+        this.setControl.pcity.setValue('');
+        this.setControl.parea.setValue('');
+        this.setControl.pstreet.setValue('');
+        this.setControl.ppincode.setValue('');  
+        }
+    // this.sameAsTemp = true
+  
   }
 get setControl(){
   return this.addAddress.controls

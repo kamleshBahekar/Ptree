@@ -79,8 +79,7 @@
         <div class="col-md-12">
             <h4 style="float: left;">Permanent Address</h4>
             <div style="float: right;" class="mb-3 form-check float-right">
-                <input [disabled]="sameAsTemp" type="checkbox" class="form-check-input" id="exampleCheck1" (click)="sameAs()">
-                <label class="form-check-label" for="exampleCheck1" > Same as temporary address</label>
+              <mat-checkbox (change)="sameAs($event)">Same as temporary address</mat-checkbox>
               </div>
         </div>
         <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
