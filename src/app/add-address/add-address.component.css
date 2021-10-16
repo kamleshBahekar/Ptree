@@ -10,3 +10,7 @@
   .capitalize {
     text-transform: capitalize;
   }
+
+  .error-block{
+    color: red;
+  }

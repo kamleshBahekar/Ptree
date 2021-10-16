@@ -13,6 +13,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class AddAddressComponent implements OnInit {
   addAddress: FormGroup;
   userId: any;
+  submitted = false;
   sameAsTemp: boolean = false  
   @Output() nextClick = new EventEmitter<string>();
   @Output() backClick = new EventEmitter<string>();
@@ -86,9 +87,12 @@ export class AddAddressComponent implements OnInit {
 get setControl(){
   return this.addAddress.controls
 }
-
+get f() {
+  return this.addAddress.controls;
+}
 
   onaddAddressNext(){
+    this.submitted = true;
     this.userId = sessionStorage.getItem('id')
     console.log("this.userId",this.userId)
     this.spinner.show();
@@ -125,8 +129,17 @@ get setControl(){
         });
         this.spinner.hide();
         this.addAddress.reset()
-      })
-    }
+      }
+        ,(err)=>{
+          // this._snackBar.open('Something wrong',"dismiss", {
+          //   duration: 1000,
+          //   horizontalPosition: this.horizontalPosition,
+          //   verticalPosition: this.verticalPosition,
+          // });
+          this.spinner.hide();
+        }
+        )
+      }
    if(this.userId) {
       const data = {
         userId: this.userId,

@@ -13,6 +13,7 @@ export class AddUserComponent implements OnInit {
 
   @Output() nextClick = new EventEmitter<string>();
 	addUser: FormGroup;
+  submitted = false;
   horizontalPosition: MatSnackBarHorizontalPosition = "right";
 	verticalPosition: MatSnackBarVerticalPosition = "top";
   userId: any;
@@ -23,11 +24,15 @@ export class AddUserComponent implements OnInit {
       'firstName' : [null, Validators.required],
       'middleName':[null, Validators.required],
       'lastName':[null, Validators.required],
-      'email':[null, Validators.required],
-      'mobile':[null, Validators.required],
+      'email': ["", [Validators.required, Validators.email]],
+      'mobile': ["", [Validators.required, Validators.minLength(6)]],
       'gender':[null, Validators.required],
       'dob':[null, Validators.required],
       });
+    }
+
+    get f() {
+      return this.addUser.controls;
     }
   ngOnInit(): void {
     
@@ -51,11 +56,8 @@ export class AddUserComponent implements OnInit {
 
     })
   }
-      
-  
-
-
   onNext(){
+    this.submitted = true;
     this.spinner.show();
     const data = {  ...this.addUser.value }
     console.log("data",data)

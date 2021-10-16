@@ -13,36 +13,66 @@
          <mat-label>Address</mat-label>
        <input matInput   formControlName="address" placeholder="Address"   class="capitalize">
        </mat-form-field>
+       <div *ngIf="submitted && f.address.errors" class="error-block display-block">
+        <div *ngIf="f.address.errors.required">
+          Address is required
+        </div>
+      </div>
      </div>
      <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
       <mat-form-field  class="example-full-width" appearance="outline">
          <mat-label>State</mat-label>
        <input matInput    formControlName="state" placeholder="State"   class="capitalize">
        </mat-form-field>
+       <div *ngIf="submitted && f.state.errors" class="error-block display-block">
+        <div *ngIf="f.state.errors.required">
+          State is required
+        </div>
+      </div>
      </div>
      <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
       <mat-form-field  class="example-full-width" appearance="outline">
          <mat-label>City</mat-label>
        <input matInput     formControlName="city" placeholder="City"   class="capitalize">
        </mat-form-field>
+       <div *ngIf="submitted && f.city.errors" class="error-block display-block">
+        <div *ngIf="f.city.errors.required">
+          City is required
+        </div>
+      </div>
      </div>
      <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
       <mat-form-field  class="example-full-width" appearance="outline">
          <mat-label>Area</mat-label>
        <input matInput    formControlName="area" placeholder="Area"   class="capitalize">
        </mat-form-field>
+       <div *ngIf="submitted && f.area.errors" class="error-block display-block">
+        <div *ngIf="f.area.errors.required">
+          Street is required
+        </div>
+      </div>
      </div>
      <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
       <mat-form-field  class="example-full-width" appearance="outline">
          <mat-label>Street</mat-label>
        <input matInput    formControlName="street" placeholder="Street"  class="capitalize">
        </mat-form-field>
+       <div *ngIf="submitted && f.street.errors" class="error-block display-block">
+        <div *ngIf="f.street.errors.required">
+          Street is required
+        </div>
+      </div>
      </div>
      <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
       <mat-form-field  class="example-full-width" appearance="outline">
          <mat-label>Pincode</mat-label>
        <input matInput    formControlName="pincode" placeholder="Pincode"  class="capitalize">
        </mat-form-field>
+       <div *ngIf="submitted && f.pincode.errors" class="error-block display-block">
+        <div *ngIf="f.pincode.errors.required">
+          Pincode is required
+        </div>
+      </div>
      </div>
     </div> 
     <div class="row mt-4">
@@ -58,42 +88,72 @@
             <mat-label>Address</mat-label>
           <input matInput    formControlName="paddress" placeholder="Address"  class="capitalize">
           </mat-form-field>
+          <div *ngIf="submitted && f.paddress.errors" class="error-block display-block">
+            <div *ngIf="f.paddress.errors.required">
+              Address is required
+            </div>
+          </div>
         </div>
         <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
          <mat-form-field  class="example-full-width" appearance="outline">
             <mat-label>State</mat-label>
           <input matInput   formControlName="pstate" placeholder="State"  class="capitalize">
           </mat-form-field>
+          <div *ngIf="submitted && f.pstate.errors" class="error-block display-block">
+            <div *ngIf="f.pstate.errors.required">
+              State is required
+            </div>
+          </div>
         </div>
         <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
          <mat-form-field  class="example-full-width" appearance="outline">
             <mat-label>City</mat-label>
           <input matInput  formControlName="pcity" placeholder="City"  class="capitalize">
           </mat-form-field>
+          <div *ngIf="submitted && f.pcity.errors" class="error-block display-block">
+            <div *ngIf="f.pcity.errors.required">
+              City is required
+            </div>
+          </div>
         </div>
         <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
          <mat-form-field  class="example-full-width" appearance="outline">
             <mat-label>Area</mat-label>
           <input matInput  formControlName="parea" placeholder="Area" class="capitalize">
           </mat-form-field>
+          <div *ngIf="submitted && f.parea.errors" class="error-block display-block">
+            <div *ngIf="f.parea.errors.required">
+              Area is required
+            </div>
+          </div>
         </div>
         <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
          <mat-form-field  class="example-full-width" appearance="outline">
             <mat-label>Street</mat-label>
           <input matInput  formControlName="pstreet" placeholder="Street" class="capitalize">
           </mat-form-field>
+          <div *ngIf="submitted && f.pstreet.errors" class="error-block display-block">
+            <div *ngIf="f.pstreet.errors.required">
+              Street is required
+            </div>
+          </div>
         </div>
         <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
          <mat-form-field  class="example-full-width" appearance="outline">
             <mat-label>Pincode</mat-label>
           <input matInput  formControlName="ppincode" placeholder="Pincode" class="capitalize">
           </mat-form-field>
+          <div *ngIf="submitted && f.ppincode.errors" class="error-block display-block">
+            <div *ngIf="f.ppincode.errors.required">
+              Pincode is required
+            </div>
+          </div>
         </div>
         <div class="form-group col-md-12 mt-4 col-sm-12 ">
            <div class="row">
                <div class="col-md-12">
                 <button type="button" style="float: left;" *ngIf="editId"  [routerLink]="['']" class="btn btn-primary">Home</button>
-                   <button type="submit" style="float: right;" [disabled]="!addAddress.valid" class="btn btn-primary">Next</button>
+                   <button type="submit" style="float: right;" class="btn btn-primary">Next</button>
                </div>
            </div>
         </div>
