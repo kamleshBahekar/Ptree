@@ -13,8 +13,8 @@ const routes: Routes = [
   {path: "stepper", component: StepperComponent},
   {path: "stepper/:id", component: StepperComponent},
   {path:"addUser",component: AddUserComponent},
-  {path:"user/:id",component: AddAddressComponent},
-  {path:"document/:id",component: AddDocumentComponent},
+  {path:"user",component: AddAddressComponent},
+  {path:"document",component: AddDocumentComponent},
   {path:"details/:id",component: FormDetailsComponent}
 ];
 

@@ -29,6 +29,9 @@ export class AddUserComponent implements OnInit {
       'gender':[null, Validators.required],
       'dob':[null, Validators.required],
       });
+      this.userinfoService.SharingData.subscribe((res:any)=>{
+        console.log("res",res)
+      })
     }
 
     get f() {
@@ -39,6 +42,7 @@ export class AddUserComponent implements OnInit {
     this.spinner.show();
     this.activatedRoute.params.subscribe(result =>{
       this.editId = result.id
+      this.userinfoService.SharingData.next(result.id);
       sessionStorage.setItem('editId',this.editId); 
       this.userinfoService.getUse(this.editId).subscribe((result:any)=>{
         console.log(result)

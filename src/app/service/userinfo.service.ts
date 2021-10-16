@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class UserinfoService {
   apiUrl = environment.apiUrl
+  SharingData = new Subject(); 
   constructor(private https: HttpClient) {}
+
   addUser(data){
     return this.https.post(this.apiUrl + "user",data);
   }

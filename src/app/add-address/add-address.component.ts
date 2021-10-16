@@ -35,6 +35,10 @@ export class AddAddressComponent implements OnInit {
       'pstreet':[null, Validators.required],
       'ppincode':[null, Validators.required],
       });
+      this.userinfoService.SharingData.subscribe((res:any)=>{
+        console.log("res",res)
+        this.editId = res
+      })
     }
 
   ngOnInit(): void {
@@ -46,7 +50,7 @@ export class AddAddressComponent implements OnInit {
     })
     this.userId = sessionStorage.getItem('id')
     console.log("this.userId",this.userId)
-    this.editId = sessionStorage.getItem('editId')
+    // this.editId = sessionStorage.getItem('editId')
      console.log("this.editId",this.editId)
     // sameAddress: this.sameAsTemp
      if(this.editId){

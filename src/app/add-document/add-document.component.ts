@@ -17,20 +17,21 @@ export class AddDocumentComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = "right";
 	verticalPosition: MatSnackBarVerticalPosition = "top";
   editId: any;
-  constructor(private spinner: NgxSpinnerService, private _snackBar: MatSnackBar ,private activatedRoute: ActivatedRoute, private userinfoService: UserinfoService,private Router:Router) { }
+  constructor(private spinner: NgxSpinnerService, private _snackBar: MatSnackBar ,private activatedRoute: ActivatedRoute, private userinfoService: UserinfoService,private Router:Router) {
+    this.userinfoService.SharingData.subscribe((res:any)=>{
+      console.log("res",res)
+      this.editId = res
+    })
+   }
 
   ngOnInit(): void {
     // this.activatedRoute.params.subscribe(result =>{
     //   this.userId = result.id
     //  })
-    this.activatedRoute.params.subscribe(result =>{
-      this.editId = result.id
-      sessionStorage.setItem('editId',this.editId); 
-
-    })
+  
    
      this.userId = sessionStorage.getItem('id');
-     this.editId = sessionStorage.getItem('editId');
+    //  this.editId = sessionStorage.getItem('editId');
      console.log("this.userId",this.userId);
      console.log("this.editId", this.editId);
      if(this.editId){
@@ -66,8 +67,6 @@ export class AddDocumentComponent implements OnInit {
   }
 
   onSubmit(){
-    this.editId = sessionStorage.getItem('editId');
-    console.log("this.userId",this.editId);
     this.nextClick.emit();
     this.spinner.show();
    
