@@ -18,7 +18,7 @@ export class AddAddressComponent implements OnInit {
   @Output() backClick = new EventEmitter<string>();
   horizontalPosition: MatSnackBarHorizontalPosition = "right";
   verticalPosition: MatSnackBarVerticalPosition = "top";
-  idUser: any;
+  editId: any;
   constructor(private spinner: NgxSpinnerService, private _snackBar: MatSnackBar ,private fb: FormBuilder, private userinfoService: UserinfoService,	private activatedRoute: ActivatedRoute,private Router:Router) {
     this.addAddress = fb.group({
       'address' : [null, Validators.required],
@@ -37,13 +37,19 @@ export class AddAddressComponent implements OnInit {
     }
 
   ngOnInit(): void {
+
+    this.activatedRoute.params.subscribe(result =>{
+      this.editId = result.id
+      sessionStorage.setItem('editId',this.editId); 
+
+    })
     this.userId = sessionStorage.getItem('id')
     console.log("this.userId",this.userId)
-    this.idUser = sessionStorage.getItem('userId')
-     console.log("this.userId",this.userId)
+    this.editId = sessionStorage.getItem('editId')
+     console.log("this.editId",this.editId)
     // sameAddress: this.sameAsTemp
-     if(this.idUser){
-      this.userinfoService.getAddress(this.idUser).subscribe((result:any)=>{
+     if(this.editId){
+      this.userinfoService.getAddress(this.editId).subscribe((result:any)=>{
         console.log("resultgggg",result.data.sameAddress)
         //this.sameAsTemp = result.data.sameAddress
         this.addAddress.patchValue({
@@ -86,9 +92,9 @@ get setControl(){
     this.userId = sessionStorage.getItem('id')
     console.log("this.userId",this.userId)
     this.spinner.show();
-    if(this.idUser){
+    if(this.editId){
       const data = {
-        userId: this.idUser,
+        userId: this.editId,
         sameAddress: this.sameAsTemp,
         temporaryAddress :{
           address: this.addAddress.value.address,
@@ -109,7 +115,7 @@ get setControl(){
         
       }
   
-      this.userinfoService.updateAddress(this.idUser,data).subscribe((result:any)=>{
+      this.userinfoService.updateAddress(this.editId,data).subscribe((result:any)=>{
         console.log("result",result)
         this.nextClick.emit();
         this._snackBar.open('Update user address successful',"dismiss", {

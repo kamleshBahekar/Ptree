@@ -30,7 +30,7 @@ verticalPosition: MatSnackBarVerticalPosition = "top";
   
   ngOnInit(): void {
     sessionStorage.removeItem("id");
-    sessionStorage.removeItem("userId");
+    sessionStorage.removeItem("editId");
     this.spinner.show();
     this.userinfoService.getList(this.page,this.limit).subscribe((resData:any)=>{
       this.Class = resData.data

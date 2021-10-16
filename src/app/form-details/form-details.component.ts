@@ -77,18 +77,18 @@ getDetail(){
       dob:result.data[0].dob,
     })
     this.addAddress.patchValue({
-      address:result.data[0].permanentAddress.address,
-      state:result.data[0].permanentAddress.state,
-      city:result.data[0].permanentAddress.city,
-      area:result.data[0].permanentAddress.area,
-      street:result.data[0].permanentAddress.street,
-      pincode:result.data[0].permanentAddress.pincode,
-      paddress:result.data[0].temporaryAddress.address,
-      pstate:result.data[0].temporaryAddress.state,
-      pcity:result.data[0].temporaryAddress.city,
-      parea:result.data[0].temporaryAddress.area,
-      pstreet:result.data[0].temporaryAddress.street,
-      ppincode:result.data[0].temporaryAddress.pincode,
+      paddress:result.data[0].permanentAddress.address,
+      pstate:result.data[0].permanentAddress.state,
+      pcity:result.data[0].permanentAddress.city,
+      parea:result.data[0].permanentAddress.area,
+      pstreet:result.data[0].permanentAddress.street,
+      ppincode:result.data[0].permanentAddress.pincode,
+      address:result.data[0].temporaryAddress.address,
+      state:result.data[0].temporaryAddress.state,
+      city:result.data[0].temporaryAddress.city,
+      area:result.data[0].temporaryAddress.area,
+      street:result.data[0].temporaryAddress.street,
+      pincode:result.data[0].temporaryAddress.pincode,
    })
 
 

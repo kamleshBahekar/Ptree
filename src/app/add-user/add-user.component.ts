@@ -16,7 +16,7 @@ export class AddUserComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = "right";
 	verticalPosition: MatSnackBarVerticalPosition = "top";
   userId: any;
-  id:any;
+  editId:any;
 
   constructor(private activatedRoute: ActivatedRoute ,private spinner: NgxSpinnerService,private _snackBar: MatSnackBar ,private fb: FormBuilder, private userinfoService: UserinfoService, private Router:Router) {
     this.addUser = fb.group({
@@ -33,9 +33,9 @@ export class AddUserComponent implements OnInit {
     
     this.spinner.show();
     this.activatedRoute.params.subscribe(result =>{
-      this.id = result.id
-      sessionStorage.setItem('userId',this.id); 
-      this.userinfoService.getUse(this.id).subscribe((result:any)=>{
+      this.editId = result.id
+      sessionStorage.setItem('editId',this.editId); 
+      this.userinfoService.getUse(this.editId).subscribe((result:any)=>{
         console.log(result)
 
         this.addUser.patchValue({
@@ -59,8 +59,8 @@ export class AddUserComponent implements OnInit {
     this.spinner.show();
     const data = {  ...this.addUser.value }
     console.log("data",data)
-    if(this.id){
-      this.userinfoService.updateUser(this.id,data).subscribe((result:any)=>{
+    if(this.editId){
+      this.userinfoService.updateUser(this.editId,data).subscribe((result:any)=>{
         console.log("result",result)
         this.nextClick.emit();
         sessionStorage.setItem('id',result.data.userId); 

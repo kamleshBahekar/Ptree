@@ -16,26 +16,31 @@ export class AddDocumentComponent implements OnInit {
   sign: any;
   horizontalPosition: MatSnackBarHorizontalPosition = "right";
 	verticalPosition: MatSnackBarVerticalPosition = "top";
-  idUser: any;
+  editId: any;
   constructor(private spinner: NgxSpinnerService, private _snackBar: MatSnackBar ,private activatedRoute: ActivatedRoute, private userinfoService: UserinfoService,private Router:Router) { }
 
   ngOnInit(): void {
     // this.activatedRoute.params.subscribe(result =>{
     //   this.userId = result.id
     //  })
+    this.activatedRoute.params.subscribe(result =>{
+      this.editId = result.id
+      sessionStorage.setItem('editId',this.editId); 
+
+    })
    
      this.userId = sessionStorage.getItem('id');
-     this.idUser = sessionStorage.getItem('userId');
+     this.editId = sessionStorage.getItem('editId');
      console.log("this.userId",this.userId);
-     console.log("this.idUser", this.idUser);
-     if(this.idUser){
+     console.log("this.editId", this.editId);
+     if(this.editId){
       this.getDocument();
     }
   }
 
 
   getDocument(){
-    this.userinfoService.getDocument(this.idUser).subscribe((result:any)=>{
+    this.userinfoService.getDocument(this.editId).subscribe((result:any)=>{
       console.log("result",result);
       this.file = result.data.avatar
       this.sign = result.data.sign
@@ -61,21 +66,21 @@ export class AddDocumentComponent implements OnInit {
   }
 
   onSubmit(){
-    this.userId = sessionStorage.getItem('id');
-    console.log("this.userId",this.userId);
+    this.editId = sessionStorage.getItem('editId');
+    console.log("this.userId",this.editId);
     this.nextClick.emit();
     this.spinner.show();
    
-    if(this.idUser){
+    if(this.editId){
       const data = {
         avatar: this.file,
         sign: this.sign,
-        userId: this.idUser
+        userId: this.editId
        }
        console.log("data",data)
-      this.userinfoService.updateDocument(this.idUser,data).subscribe((result:any)=>{
+      this.userinfoService.updateDocument(this.editId,data).subscribe((result:any)=>{
         console.log("result",result)
-        this.Router.navigate(["/details", this.idUser])
+        this.Router.navigate(["/details", this.editId])
         this._snackBar.open('Update user document upload successful',"dismiss", {
          duration: 1000,
          horizontalPosition: this.horizontalPosition,
