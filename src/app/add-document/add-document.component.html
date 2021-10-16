@@ -1,5 +1,8 @@
 <div class="border border-primary  m-5" style="border-radius: 5px">
     <div class="m-3">
+        <div class="text-center">
+            <h2>Document Upload</h2>
+        </div>
   <div class="row">
       <div class="col-md-6 col-lg-6 col-sm-6">
         <div class="row">
@@ -10,7 +13,7 @@
                 hidden
                 (change)="handleChange($event.target.files)"
               />
-              <button  mat-raised-button (click)="fileInput.click()">Upload Document</button>
+              <button  mat-raised-button (click)="fileInput.click()">Upload Photo</button>
             </div>
            </div> 
             <div class="row mt-3" *ngIf="file">
@@ -45,7 +48,7 @@
         <div class="row">
             <div class="col-md-12">
                 <button type="button" style="float: left;" (click)="onBack()" class="btn btn-primary">Back</button>
-                <button type="submit" style="float: right;" class="btn btn-primary" (click)="onSubmit()" >Submit</button>
+                <button type="submit" style="float: right;" class="btn btn-primary" [disabled]="!file" (click)="onSubmit()" >Submit</button>
             </div>
         </div>
      </div>

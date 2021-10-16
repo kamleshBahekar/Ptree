@@ -82,6 +82,7 @@ export class AddDocumentComponent implements OnInit {
          verticalPosition: this.verticalPosition,
         });
       })
+      
     }
     if(this.userId){
 
@@ -105,11 +106,12 @@ export class AddDocumentComponent implements OnInit {
    },
    (err)=>{
     console.log(err)
-    this._snackBar.open('Something Wrong',"dismiss", {
-      duration: 1000,
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-  });
+    
+  //   this._snackBar.open('Something Wrong',"dismiss", {
+  //     duration: 1000,
+  //     horizontalPosition: this.horizontalPosition,
+  //     verticalPosition: this.verticalPosition,
+  // });
   this.spinner.hide();
   })
   }

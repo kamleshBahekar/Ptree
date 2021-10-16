@@ -1,12 +1,12 @@
 <div class="m-5  border border-primary" style="border-radius: 5px;">
    <div class=" m-3">
       <div class=" text-center ">
-         <h4>Add User Address</h4>
+         <h2>Address details</h2>
    </div>
     <form [formGroup]="addAddress" (ngSubmit)="onaddAddressNext()">
     <div class="row">
         <div class="col-md-12">
-            <h5>Temporary Address</h5>
+            <h4>Temporary Address</h4>
         </div>
      <div class="form-group col-md-6 col-sm-6 col-lg-6 ">
       <mat-form-field  class="example-full-width" appearance="outline">
@@ -47,7 +47,7 @@
     </div> 
     <div class="row mt-4">
         <div class="col-md-12">
-            <h5 style="float: left;">Permanent Address</h5>
+            <h4 style="float: left;">Permanent Address</h4>
             <div style="float: right;" class="mb-3 form-check float-right">
                 <input [disabled]="sameAsTemp" type="checkbox" class="form-check-input" id="exampleCheck1" (click)="sameAs()">
                 <label class="form-check-label" for="exampleCheck1" > Same as temporary address</label>

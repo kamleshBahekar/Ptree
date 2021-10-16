@@ -13,7 +13,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class AddAddressComponent implements OnInit {
   addAddress: FormGroup;
   userId: any;
-  sameAsTemp: boolean = false 
+  sameAsTemp: boolean = false  
   @Output() nextClick = new EventEmitter<string>();
   @Output() backClick = new EventEmitter<string>();
   horizontalPosition: MatSnackBarHorizontalPosition = "right";
@@ -41,10 +41,11 @@ export class AddAddressComponent implements OnInit {
     console.log("this.userId",this.userId)
     this.idUser = sessionStorage.getItem('userId')
      console.log("this.userId",this.userId)
-
+    // sameAddress: this.sameAsTemp
      if(this.idUser){
       this.userinfoService.getAddress(this.idUser).subscribe((result:any)=>{
         console.log("resultgggg",result)
+
         this.addAddress.patchValue({
            address:result.data.permanentAddress.address,
            state:result.data.permanentAddress.state,
@@ -88,6 +89,7 @@ get setControl(){
     if(this.idUser){
       const data = {
         userId: this.idUser,
+        sameAddress: this.sameAsTemp,
         temporaryAddress :{
           address: this.addAddress.value.address,
           state: this.addAddress.value.state,
@@ -122,6 +124,7 @@ get setControl(){
    if(this.userId) {
       const data = {
         userId: this.userId,
+        sameAddress: this.sameAsTemp,
         temporaryAddress :{
           address: this.addAddress.value.address,
           state: this.addAddress.value.state,
@@ -152,11 +155,11 @@ get setControl(){
         this.addAddress.reset()
       }
       ,(err)=>{
-        this._snackBar.open('Something wrong',"dismiss", {
-          duration: 1000,
-          horizontalPosition: this.horizontalPosition,
-          verticalPosition: this.verticalPosition,
-        });
+        // this._snackBar.open('Something wrong',"dismiss", {
+        //   duration: 1000,
+        //   horizontalPosition: this.horizontalPosition,
+        //   verticalPosition: this.verticalPosition,
+        // });
         this.spinner.hide();
       }
       )
