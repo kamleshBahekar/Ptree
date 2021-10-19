@@ -19,7 +19,9 @@ import { UserListComponent } from './user-list/user-list.component';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { StepperComponent } from './stepper/stepper.component';
 // MDB Angular Pro
-import { StepperModule, WavesModule } from 'ng-uikit-pro-standard'
+import { StepperModule, WavesModule } from 'ng-uikit-pro-standard';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component'
 // MDB Angular Pro
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { StepperModule, WavesModule } from 'ng-uikit-pro-standard'
     FormDetailsComponent,
     UserListComponent,
     StepperComponent,
+    LoginComponent,
+    RegistrationComponent,
 
    
     

@@ -25,7 +25,7 @@ Designation: any;
 Loading = true
 horizontalPosition: MatSnackBarHorizontalPosition = "right";
 verticalPosition: MatSnackBarVerticalPosition = "top";
-  constructor(private _snackBar: MatSnackBar,private Router:Router, private spinner: NgxSpinnerService,private userinfoService: UserinfoService) { }
+  constructor(private _snackBar: MatSnackBar,private router:Router, private spinner: NgxSpinnerService,private userinfoService: UserinfoService) { }
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   
   ngOnInit(): void {
@@ -63,7 +63,7 @@ verticalPosition: MatSnackBarVerticalPosition = "top";
 
   onEdit(id){
     console.log('onEdit',id);
-    this.Router.navigate(["/stepper",id])
+    this.router.navigate(["/stepper",id])
   }
 
 
@@ -80,7 +80,11 @@ verticalPosition: MatSnackBarVerticalPosition = "top";
     this.spinner.hide();
    })
   }
-
+  logout(){
+    sessionStorage.removeItem("accessToken");
+    this.router.navigate(['login']);
+  
+  }
   onPage(event:PageEvent){
     console.log("event",event)
     console.log("event",event.pageSize)
