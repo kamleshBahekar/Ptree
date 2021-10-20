@@ -72,7 +72,7 @@ verticalPosition: MatSnackBarVerticalPosition = "top";
    this.userinfoService.deleteUser(id).subscribe((result:any)=>{
      console.log("result",result)
      this.ngOnInit()
-     this._snackBar.open('Update user address successful',"dismiss", {
+     this._snackBar.open('User delete successful',"dismiss", {
       duration: 1000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
@@ -82,6 +82,12 @@ verticalPosition: MatSnackBarVerticalPosition = "top";
   }
   logout(){
     sessionStorage.removeItem("accessToken");
+    this._snackBar.open('Logout successful',"dismiss", {
+      duration: 1000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
+    this.spinner.hide();
     this.router.navigate(['login']);
   
   }
