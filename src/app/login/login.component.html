@@ -9,7 +9,7 @@
                 <div class="form-group col-md-6 col-md-offset-5 align-center ">
             <mat-form-field  class="example-full-width" appearance="outline">
              <mat-label>Email</mat-label>
-           <input matInput  formControlName="email" placeholder="Email"   class="capitalize">
+           <input matInput  formControlName="email" placeholder="Email">
            </mat-form-field>
            <div *ngIf="submitted && f.email.errors" class="error-block display-block">
             <div *ngIf="f.email.errors.required">
@@ -27,7 +27,7 @@
                 <div class="form-group col-md-6 col-md-offset-5 align-center ">
           <mat-form-field  class="example-full-width" appearance="outline">
              <mat-label>Password</mat-label>
-           <input matInput [type]="hide ? 'password' : 'text'"  formControlName="password" placeholder="Password" class="capitalize">
+           <input matInput [type]="hide ? 'password' : 'text'"  formControlName="password" placeholder="Password">
            <span class="material-icons" style="font-size: 17px;margin: -70px;padding: 14px;
                                                     cursor: pointer;padding-top: 66px;margin-left: -40px;"
                                                         (click)="hide = !hide">
