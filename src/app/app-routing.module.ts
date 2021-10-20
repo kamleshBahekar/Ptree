@@ -14,7 +14,7 @@ import { UserListComponent } from './user-list/user-list.component';
 
 const routes: Routes = [
     {path: "login", component:LoginComponent, canActivate: [NonAuthGuard],},
-  {path: "registration", component:RegistrationComponent, canActivate: [NonAuthGuard],},
+  {path: "login/registration", component:RegistrationComponent, canActivate: [NonAuthGuard],},
   {    
     path: '',
     component: UserListComponent,

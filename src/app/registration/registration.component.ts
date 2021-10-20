@@ -38,7 +38,7 @@ export class RegistrationComponent implements OnInit {
     this.userinfoService.register(data).subscribe((result:any)=>{
       console.log("result",result)
       if (result.status == "SUCCESS"){
-        this._snackBar.open('Login successful',"dismiss", {
+        this._snackBar.open(result.data,"dismiss", {
           duration: 1000,
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
