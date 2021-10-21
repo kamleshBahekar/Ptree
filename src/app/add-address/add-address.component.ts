@@ -138,7 +138,7 @@ get f() {
       this.userinfoService.updateAddress(this.editId,data).subscribe((result:any)=>{
         console.log("result",result)
         this.nextClick.emit();
-        this._snackBar.open('Update user address successful',"dismiss", {
+        this._snackBar.open(result.data.message,"dismiss", {
           duration: 1000,
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
@@ -179,9 +179,9 @@ get f() {
         
       }
   
-      this.userinfoService.addAddress(data).subscribe(result =>{
+      this.userinfoService.addAddress(data).subscribe((result:any) =>{
         this.nextClick.emit();
-        this._snackBar.open('Add user address successful',"dismiss", {
+        this._snackBar.open(result.data.message,"dismiss", {
           duration: 1000,
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,

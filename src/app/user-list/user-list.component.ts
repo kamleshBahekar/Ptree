@@ -36,7 +36,7 @@ verticalPosition: MatSnackBarVerticalPosition = "top";
       this.Class = resData.data
       console.log("resData.data",resData.data)
        this.Class =[]
-     for (let index = 0; index < resData.data.length; index++) {
+     for (let index = 0; index < resData?.data?.length; index++) {
        const element = resData.data[index];
        const arr = {
          "Sr.No":'',

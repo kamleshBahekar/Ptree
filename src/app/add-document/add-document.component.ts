@@ -80,7 +80,7 @@ export class AddDocumentComponent implements OnInit {
       this.userinfoService.updateDocument(this.editId,data).subscribe((result:any)=>{
         console.log("result",result)
         this.Router.navigate(["/details", this.editId])
-        this._snackBar.open('Update user document upload successful',"dismiss", {
+        this._snackBar.open(result.data.message,"dismiss", {
          duration: 1000,
          horizontalPosition: this.horizontalPosition,
          verticalPosition: this.verticalPosition,
@@ -99,9 +99,9 @@ export class AddDocumentComponent implements OnInit {
         userId: this.userId
        }
        console.log("data",data)
-   this.userinfoService.addDocument(data).subscribe(result =>{
+   this.userinfoService.addDocument(data).subscribe((result:any)=>{
     this.Router.navigate(["/details", this.userId])
-    this._snackBar.open('Add user document upload successful',"dismiss", {
+    this._snackBar.open(result.data.message,"dismiss", {
      duration: 1000,
      horizontalPosition: this.horizontalPosition,
      verticalPosition: this.verticalPosition,

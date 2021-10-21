@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
      this.userinfoService.login(data).subscribe((result:any)=>{
        console.log("result",result)
        if (result.status == "SUCCESS"){
-        this._snackBar.open('Login successful',"dismiss", {
+        this._snackBar.open(result.message.data,"dismiss", {
           duration: 1000,
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,

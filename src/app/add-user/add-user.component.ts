@@ -70,7 +70,7 @@ export class AddUserComponent implements OnInit {
         console.log("result",result)
         this.nextClick.emit();
         sessionStorage.setItem('id',result.data.userId); 
-        this._snackBar.open('Update user information successful',"dismiss", {
+        this._snackBar.open(result.data.message,"dismiss", {
           duration: 1000,
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
@@ -82,9 +82,10 @@ export class AddUserComponent implements OnInit {
     else{
       this.userinfoService.addUser(data).subscribe((result:any) =>{
         this.nextClick.emit();
+        console.log("result",result)
         sessionStorage.setItem('id',result.data.userId); 
        // this.Router.navigate(["/user",result.data.userId])
-        this._snackBar.open('Add user information successful',"dismiss", {
+        this._snackBar.open(result.data.message,"dismiss", {
           duration: 1000,
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition,
